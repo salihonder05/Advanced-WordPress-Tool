@@ -2,7 +2,7 @@
 /**
  * Advanced WP Tools
  *
- * @package     awpPackage
+ * @package     awtPackage
  * @author      Salih ÖNDER
  * @copyright   2020 Salih ÖNDER
  * @license     GPL-3.0
