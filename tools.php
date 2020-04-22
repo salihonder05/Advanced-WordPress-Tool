@@ -210,6 +210,34 @@ function wat_admin_menu_page() {
 			else {
 				update_option('d-prenextlinks',false);
 			}
+			
+			if (isset($_POST['d-jquerygoogle'])) {
+				update_option('d-jquerygoogle',true);
+			}
+			else {
+				update_option('d-jquerygoogle',false);
+			}
+
+			if (isset($_POST['d-wpcoreautoupdate'])) {
+				update_option('d-wpcoreautoupdate',true);
+			}
+			else {
+				update_option('d-wpcoreautoupdate',false);
+			}
+			
+			if (isset($_POST['d-wpthemeautoupdate'])) {
+				update_option('d-wpthemeautoupdate',true);
+			}
+			else {
+				update_option('d-wpthemeautoupdate',false);
+			}
+
+			if (isset($_POST['d-wppluginsautoupdate'])) {
+				update_option('d-wppluginsautoupdate',true);
+			}
+			else {
+				update_option('d-wppluginsautoupdate',false);
+			}
 
 
 
@@ -244,9 +272,14 @@ function wat_admin_menu_page() {
 				<small>Please select the items you want to disable.</small>
 				<br> <br>
 				
+				<fieldset>
+					<label for="toggleCheckboxes">
+					<input type="checkbox" name="toggleCheckboxes" id="toggleCheckboxes" onClick="toggle(this)" />
+					Toggle All</label>
+				</fieldset>
+				<hr>
 
-					<input type="checkbox" onClick="toggle(this)" /> Toggle All<br/>
-					<br>
+					
 				<fieldset>
 					<label for="d-xmlrpc">
 					<input type="checkbox" class="regular-text" name="d-xmlrpc" id="d-xmlrpc" 
@@ -367,6 +400,32 @@ function wat_admin_menu_page() {
 					<?php if(get_option('d-prenextlinks')) {echo 'checked';} ?>>
 					Disable Previous and Next Article Links From Head (Html)</label>
 				</fieldset>
+				<fieldset>
+					<label for="d-jquerygoogle">
+					<input type="checkbox" class="regular-text" name="d-jquerygoogle" id="d-jquerygoogle"
+					<?php if(get_option('d-jquerygoogle')) {echo 'checked';} ?>>
+					Move Jquery To Google CDN From Wp-Includes</label>
+				</fieldset>
+				<fieldset>
+					<label for="d-wpcoreautoupdate">
+					<input type="checkbox" class="regular-text" name="d-wpcoreautoupdate" id="d-wpcoreautoupdate"
+					<?php if(get_option('d-wpcoreautoupdate')) {echo 'checked';} ?>>
+					Disable WP Core Auto Update</label>
+				</fieldset>
+				<fieldset>
+					<label for="d-wpthemeautoupdate">
+					<input type="checkbox" class="regular-text" name="d-wpthemeautoupdate" id="d-wpthemeautoupdate"
+					<?php if(get_option('d-wpthemeautoupdate')) {echo 'checked';} ?>>
+					Disable Themes Auto Update</label>
+				</fieldset>
+				<fieldset>
+					<label for="d-wppluginsautoupdate">
+					<input type="checkbox" class="regular-text" name="d-wppluginsautoupdate" id="d-wppluginsautoupdate"
+					<?php if(get_option('d-wppluginsautoupdate')) {echo 'checked';} ?>>
+					Disable Plugins Auto Update</label>
+				</fieldset>
+
+
 				
 				<script language="JavaScript">
 					
@@ -785,6 +844,47 @@ function wat_admin_menu_page() {
 			remove_action('wp_head', 'adjacent_posts_rel_link_wp_head');
 		}
 	/* Disable Previous & Next Article Links */
+
+	/* Move Jquery To Google CDN */
+		if ( get_option('d-jquerygoogle') == true ) {
+			add_action('init', 'use_jquery_from_google');
+
+			function use_jquery_from_google () {
+				if (is_admin()) {
+					return;
+				}
+
+				global $wp_scripts;
+				if (isset($wp_scripts->registered['jquery']->ver)) {
+					$ver = $wp_scripts->registered['jquery']->ver;
+							$ver = str_replace("-wp", "", $ver);
+				} else {
+					$ver = '1.12.4';
+				}
+
+				wp_deregister_script('jquery');
+				wp_register_script('jquery', "//ajax.googleapis.com/ajax/libs/jquery/$ver/jquery.min.js", false, $ver);
+			}
+		}
+	/* Move Jquery To Google CDN */
+	
+	/* Disable WP Core Auto Update */
+		if ( get_option('d-wpcoreautoupdate') == true ) {
+			define( 'WP_AUTO_UPDATE_CORE', false );
+		}
+	/* Disable WP Core Auto Update */
+
+	/* Disable WP Themes Auto Update */
+		if ( get_option('d-wpthemeautoupdate') == true ) {
+			add_filter( 'auto_update_plugin', '__return_false' );
+		}
+	/* Disable WP Themes Auto Update */
+
+	/* Disable WP Plugins Auto Update */
+		if ( get_option('d-wppluginsautoupdate') == true ) {
+			add_filter( 'auto_update_plugin', '__return_false' );
+		}
+	/* Disable WP Plugins Auto Update */
 
 
 /* Disable Elements */
