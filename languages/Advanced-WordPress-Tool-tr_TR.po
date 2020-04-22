@@ -1,11 +1,11 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: WP Advanced Tools\n"
+"Project-Id-Version: Advanced WP Tools\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-22 16:49+0000\n"
-"PO-Revision-Date: 2020-04-22 16:51+0000\n"
+"POT-Creation-Date: 2020-04-22 18:12+0000\n"
+"PO-Revision-Date: 2020-04-22 18:23+0000\n"
 "Last-Translator: \n"
-"Language-Team: \n"
+"Language-Team: Türkçe\n"
 "Language: tr_TR\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "MIME-Version: 1.0\n"
@@ -14,20 +14,155 @@ msgstr ""
 "X-Generator: Loco https://localise.biz/\n"
 "X-Loco-Version: 2.3.3; wp-5.4"
 
+#: tools.php:474
+msgid "- Google Fonts, JS Libraries or more "
+msgstr "- Google Fontları, Js dosyaları ve daha fazlası"
+
+#: tools.php:473
+msgid "- Your Google Analytics, Yandex Metrica, Facebook Pixel etc. Codes. "
+msgstr ""
+"- Google Analytics, Yandex Metrica, Facebook Pixel ve diğer tüm kodlarınız."
+
+#: tools.php:472
+msgid "Add Scripts (To Header)"
+msgstr "Script Ekle (Header'a)"
+
+#: tools.php:409
+msgid "Add SVG Support (Media - Upload)"
+msgstr "SVG desteği ekle (Medya dosyaları için Upload)"
+
+#. Name of the plugin
+msgid "Advanced WP Tools"
+msgstr "Advanced WP Tools"
+
 #. Description of the plugin
 msgid ""
 "Cancel everything you don't need. Make WordPress more secure. Take care of "
 "all your transactions with a single plugin."
 msgstr ""
+"İhtiyacınız olmayan herşeyi iptal edin. Wordpressi daha güvenli ve hızlı "
+"hale getirin. Tüm ihtiyacınızı tek eklenti ile halledin."
+
+#: tools.php:339
+msgid "Disable  api.w.org Relation Link"
+msgstr "api.w.org Relation Linkini Kaldır"
+
+#: tools.php:346
+msgid "Disable  Rest API for Guests (site.com/wp-json)"
+msgstr "Ziyaretçilerin REST API erişimini kaldır (site.com/wp-json)"
+
+#: tools.php:397
+msgid "Disable Admin Bar From Frontend"
+msgstr "Admin Bar'ı siteden kaldır (Admin panelden kaldırmaz)"
+
+#: tools.php:403
+msgid "Disable Auto Save (In Edit Screens)"
+msgstr "Otomatik Kaydetmeyi Kapat (Düzenleme ekranlarında)"
+
+#: tools.php:390
+msgid "Disable Comment System"
+msgstr "Yorum Sistemini Kaldır"
+
+#: tools.php:351
+msgid "Disable Dns Prefetch Link"
+msgstr "DNS Prefetch Linkini Kaldır"
+
+#: tools.php:371
+msgid "Disable Gutenberg Editor"
+msgstr "Gutenberg Editörünü Kaldır"
+
+#: tools.php:384
+msgid "Disable Html In Comments (For Safe Comments)"
+msgstr "Yorumları HTML den temizle"
+
+#: tools.php:321
+msgid "Disable Manifest"
+msgstr "Manifest Linkini Kaldır"
+
+#: tools.php:445
+msgid "Disable Plugins Auto Update"
+msgstr "Eklentilerin Otomatik Güncellenmesini Engelle"
+
+#: tools.php:421
+msgid "Disable Previous and Next Article Links From Head (Html)"
+msgstr "Önceki ve Sonraki Yazı Bağlantılarını Header'dan Kaldır"
+
+#: tools.php:333
+msgid "Disable Query Strings All Static Resources"
+msgstr "Statik Kaynaklardan Sorgu Dizelerini Kaldır"
+
+#: tools.php:364
+msgid "Disable RSS Links"
+msgstr "RSS Linklerini Header'dan Kaldır"
+
+#: tools.php:415
+msgid "Disable Screen Options Button (Administrators Excluded)"
+msgstr "Ekran Tercihleri Butonunu Admin Panelden Kaldır. (Adminler Hariç)"
+
+#: tools.php:327
+msgid "Disable Shortlink"
+msgstr "Shortlink'i Header'dan kaldır"
+
+#: tools.php:378
+msgid "Disable Theme/Plugin File Editors"
+msgstr "Tema/Eklenti Düzenleyiciyi İptal Et"
+
+#: tools.php:439
+msgid "Disable Themes Auto Update"
+msgstr "Temaların Otomatik Güncellenmesini Engelle"
+
+#: tools.php:433
+msgid "Disable WP Core Auto Update"
+msgstr "Wordpress'in Otomatik Güncellenmesini Engelle"
+
+#: tools.php:358
+msgid "Disable WP Embed Link"
+msgstr "WP Embed Linkini iptal et."
+
+#: tools.php:309
+msgid "Disable WP Emojis"
+msgstr "WP Emojilerini İptal Et"
+
+#: tools.php:315
+msgid "Disable WP Version Number"
+msgstr "Wordpress versiyon numarasını header'dan kaldır"
+
+#: tools.php:303
+msgid "Disable XMLRPC"
+msgstr "XMLRPC' yi Header'dan kaldır"
 
 #. Author URI of the plugin
 msgid "https://www.salihonder.com.tr"
-msgstr ""
+msgstr "https://www.salihonder.com.tr"
+
+#. URI of the plugin
+msgid "https://www.salihonder.com.tr/pluginler/advanced-wordpress-tool/"
+msgstr "https://www.salihonder.com.tr/pluginler/advanced-wordpress-tool/"
+
+#: tools.php:427
+msgid "Move Jquery To Google CDN From Wp-Includes"
+msgstr "WordPress Jquery kaynağını CDN e taşı"
+
+#: tools.php:288
+msgid "Please select the items you want to disable."
+msgstr "Lütfen iptal etmek istediğiniz öğeleri seçin."
 
 #. Author of the plugin
 msgid "Salih ÖNDER"
-msgstr ""
+msgstr "Salih ÖNDER"
 
-#. Name of the plugin
-msgid "WP Advanced Tools"
-msgstr ""
+#: tools.php:466 tools.php:484
+msgid "Save Settings"
+msgstr "Ayarları Kaydet"
+
+#: tools.php:287
+msgid "Select Options"
+msgstr "Ayarları Seç"
+
+#: tools.php:294
+msgid "Toggle All"
+msgstr "Tümünü Değiştir"
+
+#: tools.php:391
+msgid "You must remove frontend components."
+msgstr "Temanızda kalıntıları temizlemeniz gerekir."

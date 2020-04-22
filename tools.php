@@ -1,12 +1,27 @@
 <?php 
-/** 
- * Plugin Name: WP Advanced Tools
+/**
+ * Advanced WP Tools
+ *
+ * @package     awpPackage
+ * @author      Salih ÖNDER
+ * @copyright   2020 Salih ÖNDER
+ * @license     GPL-3.0
+ *
+ * @wordpress-plugin
+ * Plugin Name: Advanced WP Tools
+ * Plugin URI:  https://www.salihonder.com.tr/pluginler/advanced-wordpress-tool/
  * Description: Cancel everything you don't need. Make WordPress more secure. Take care of all your transactions with a single plugin.
- * Version: 1.0.0 
- * Author: Salih ÖNDER
- * Author URI: https://www.salihonder.com.tr
- * License: GNU
+ * Version:     1.0.0
+ * Author:      Salih ÖNDER
+ * Author URI:  https://www.salihonder.com.tr
+ * Text Domain: advanced-wordpress-tool
+ * License:     GPL v3
+ * License URI: http://www.gnu.org/licenses/gpl-3.0.txt
  */
+
+
+
+
 
 
 /** Eklenecekler
@@ -14,6 +29,7 @@
  * 
  * 
  */
+load_plugin_textdomain( 'advanced-wordpress-tool', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
 
 add_action('admin_menu', 'wat_admin_menu_option');
 
@@ -268,14 +284,14 @@ function wat_admin_menu_page() {
 	/* Generate Form */
 		?>
 			<form action="" method="post">
-				<h2>Select Options</h2>
-				<small>Please select the items you want to disable.</small>
+				<h2><?php _e('Select Options','advanced-wordpress-tool')?></h2>
+				<small><?php _e('Please select the items you want to disable.','advanced-wordpress-tool')?></small>
 				<br> <br>
 				
 				<fieldset>
 					<label for="toggleCheckboxes">
 					<input type="checkbox" name="toggleCheckboxes" id="toggleCheckboxes" onClick="toggle(this)" />
-					Toggle All</label>
+					<?php _e('Toggle All','advanced-wordpress-tool')?></label>
 				</fieldset>
 				<hr>
 
@@ -284,145 +300,149 @@ function wat_admin_menu_page() {
 					<label for="d-xmlrpc">
 					<input type="checkbox" class="regular-text" name="d-xmlrpc" id="d-xmlrpc" 
 					<?php if(get_option('d-xmlrpc')) {echo 'checked';} ?>>
-					Disable XMLRPC</label>
+					<?php _e('Disable XMLRPC','advanced-wordpress-tool')?></label>
 				</fieldset>
 				<fieldset>
 					<label for="d-emojis">
 					<input type="checkbox" class="regular-text" name="d-emojis" id="d-emojis"
 					<?php if(get_option('d-emojis')) {echo 'checked';} ?>>
-					Disable WP Emojis</label>
+					<?php _e('Disable WP Emojis','advanced-wordpress-tool')?></label>
 				</fieldset>
 				<fieldset>
 					<label for="d-version">
 					<input type="checkbox" class="regular-text" name="d-version" id="d-version"
 					<?php if(get_option('d-version')) {echo 'checked';} ?>>
-					Disable WP Version Info</label>
+					<?php _e('Disable WP Version Number','advanced-wordpress-tool')?></label>
 				</fieldset>
 				<fieldset>
 					<label for="d-manifest">
 					<input type="checkbox" class="regular-text" name="d-manifest" id="d-manifest"
 					<?php if(get_option('d-manifest')) {echo 'checked';} ?>>
-					Disable Manifest</label>
+					<?php _e('Disable Manifest','advanced-wordpress-tool')?></label>
 				</fieldset>
 				<fieldset>
 					<label for="d-shortlink">
 					<input type="checkbox" class="regular-text" name="d-shortlink" id="d-shortlink"
 					<?php if(get_option('d-shortlink')) {echo 'checked';} ?>>
-					Disable Shortlink</label>
+					<?php _e('Disable Shortlink','advanced-wordpress-tool')?></label>
 				</fieldset>
 				<fieldset>
 					<label for="d-querystrings">
 					<input type="checkbox" class="regular-text" name="d-querystrings" id="d-querystrings"
 					<?php if(get_option('d-querystrings')) {echo 'checked';} ?>>
-					Disable Query Strings All Static Resources</label>
+					<?php _e('Disable Query Strings All Static Resources','advanced-wordpress-tool')?></label>
 				</fieldset>
 				<fieldset>
 					<label for="d-apilink">
 					<input type="checkbox" class="regular-text" name="d-apilink" id="d-apilink"
 					<?php if(get_option('d-apilink')) {echo 'checked';} ?>>
-					Disable  api.w.org Relation Link</label>
+					<?php _e('Disable  api.w.org Relation Link','advanced-wordpress-tool')?>
+					</label>
 				</fieldset>
 				<fieldset>
 					<label for="d-restapi">
 					<input type="checkbox" class="regular-text" name="d-restapi" id="d-restapi"
 					<?php if(get_option('d-restapi')) {echo 'checked';} ?>>
-					Disable  Rest API for Guests (site.com/wp-json)</label>
+					<?php _e('Disable  Rest API for Guests (site.com/wp-json)','advanced-wordpress-tool')?></label>
 				</fieldset>
 				<fieldset>
 					<label for="d-dnslink">
 					<input type="checkbox" class="regular-text" name="d-dnslink" id="d-dnslink"
-					<?php if(get_option('d-dnslink')) {echo 'checked';} ?>>
-					Disable Dns Prefetch Link</label>
+					<?php if(get_option('d-dnslink')) {echo 'checked';} ?>><?php _e('Disable Dns Prefetch Link','advanced-wordpress-tool')?>
+					</label>
 				</fieldset>
 				<fieldset>
 					<label for="d-embedlink">
 					<input type="checkbox" class="regular-text" name="d-embedlink" id="d-embedlink"
 					<?php if(get_option('d-embedlink')) {echo 'checked';} ?>>
-					Disable WP Embed Link</label>
+					<?php _e('Disable WP Embed Link','advanced-wordpress-tool')?></label>
 				</fieldset>
 				<fieldset>
 					<label for="d-rsslink">
 					<input type="checkbox" class="regular-text" name="d-rsslink" id="d-rsslink"
 					<?php if(get_option('d-rsslink')) {echo 'checked';} ?>>
-					Disable RSS Links</label>
+					<?php _e('Disable RSS Links','advanced-wordpress-tool')?>
+					</label>
 				</fieldset>
 				<fieldset>
 					<label for="d-gutenberg">
 					<input type="checkbox" class="regular-text" name="d-gutenberg" id="d-gutenberg"
 					<?php if(get_option('d-gutenberg')) {echo 'checked';} ?>>
-					Disable Gutenberg Editor</label>
+					<?php _e('Disable Gutenberg Editor','advanced-wordpress-tool')?>
+					</label>
 				</fieldset>
 				<fieldset>
 					<label for="d-editors">
 					<input type="checkbox" class="regular-text" name="d-editors" id="d-editors"
 					<?php if(get_option('d-editors')) {echo 'checked';} ?>>
-					Disable Theme/Plugin File Editors</label>
+					<?php _e('Disable Theme/Plugin File Editors','advanced-wordpress-tool')?></label>
 				</fieldset>
 				<fieldset>
 					<label for="d-htmlfromcomments">
 					<input type="checkbox" class="regular-text" name="d-htmlfromcomments" id="d-htmlfromcomments"
 					<?php if(get_option('d-htmlfromcomments')) {echo 'checked';} ?>>
-					Disable Html In Comments (For Safe Comments)</label>
+					<?php _e('Disable Html In Comments (For Safe Comments)','advanced-wordpress-tool')?></label>
 				</fieldset>
 				<fieldset>
 					<label for="d-comments">
 					<input type="checkbox" class="regular-text" name="d-comments" id="d-comments"
 					<?php if(get_option('d-comments')) {echo 'checked';} ?>>
-					Disable Comment System <small>You must remove frontend components.</small></label>
+					<?php _e('Disable Comment System','advanced-wordpress-tool')?>
+					 <small><?php _e('You must remove frontend components.','advanced-wordpress-tool')?></small></label>
 				</fieldset>
 				<fieldset>
 					<label for="d-adminbar">
 					<input type="checkbox" class="regular-text" name="d-adminbar" id="d-adminbar"
 					<?php if(get_option('d-adminbar')) {echo 'checked';} ?>>
-					Disable Admin Bar From Frontend</label>
+					<?php _e('Disable Admin Bar From Frontend','advanced-wordpress-tool')?></label>
 				</fieldset>
 				<fieldset>
 					<label for="d-autosave">
 					<input type="checkbox" class="regular-text" name="d-autosave" id="d-autosave"
 					<?php if(get_option('d-autosave')) {echo 'checked';} ?>>
-					Disable Auto Save (In Edit Screens)</label>
+					<?php _e('Disable Auto Save (In Edit Screens)','advanced-wordpress-tool')?></label>
 				</fieldset>
 				<fieldset>
 					<label for="d-addsvg">
 					<input type="checkbox" class="regular-text" name="d-addsvg" id="d-addsvg"
 					<?php if(get_option('d-addsvg')) {echo 'checked';} ?>>
-					Add SVG Support (Media - Upload)</label>
+					<?php _e('Add SVG Support (Media - Upload)','advanced-wordpress-tool')?></label>
 				</fieldset>
 				<fieldset>
 					<label for="d-screenoptions">
 					<input type="checkbox" class="regular-text" name="d-screenoptions" id="d-screenoptions"
 					<?php if(get_option('d-screenoptions')) {echo 'checked';} ?>>
-					Disable Screen Options Button (Administrators Excluded)</label>
+					<?php _e('Disable Screen Options Button (Administrators Excluded)','advanced-wordpress-tool')?></label>
 				</fieldset>
 				<fieldset>
 					<label for="d-prenextlinks">
 					<input type="checkbox" class="regular-text" name="d-prenextlinks" id="d-prenextlinks"
 					<?php if(get_option('d-prenextlinks')) {echo 'checked';} ?>>
-					Disable Previous and Next Article Links From Head (Html)</label>
+					<?php _e('Disable Previous and Next Article Links From Head (Html)','advanced-wordpress-tool')?></label>
 				</fieldset>
 				<fieldset>
 					<label for="d-jquerygoogle">
 					<input type="checkbox" class="regular-text" name="d-jquerygoogle" id="d-jquerygoogle"
 					<?php if(get_option('d-jquerygoogle')) {echo 'checked';} ?>>
-					Move Jquery To Google CDN From Wp-Includes</label>
+					<?php _e('Move Jquery To Google CDN From Wp-Includes','advanced-wordpress-tool')?></label>
 				</fieldset>
 				<fieldset>
 					<label for="d-wpcoreautoupdate">
 					<input type="checkbox" class="regular-text" name="d-wpcoreautoupdate" id="d-wpcoreautoupdate"
 					<?php if(get_option('d-wpcoreautoupdate')) {echo 'checked';} ?>>
-					Disable WP Core Auto Update</label>
+					<?php _e('Disable WP Core Auto Update','advanced-wordpress-tool')?></label>
 				</fieldset>
 				<fieldset>
 					<label for="d-wpthemeautoupdate">
 					<input type="checkbox" class="regular-text" name="d-wpthemeautoupdate" id="d-wpthemeautoupdate"
 					<?php if(get_option('d-wpthemeautoupdate')) {echo 'checked';} ?>>
-					Disable Themes Auto Update</label>
+					<?php _e('Disable Themes Auto Update','advanced-wordpress-tool')?></label>
 				</fieldset>
 				<fieldset>
 					<label for="d-wppluginsautoupdate">
 					<input type="checkbox" class="regular-text" name="d-wppluginsautoupdate" id="d-wppluginsautoupdate"
 					<?php if(get_option('d-wppluginsautoupdate')) {echo 'checked';} ?>>
-					Disable Plugins Auto Update</label>
+					<?php _e('Disable Plugins Auto Update','advanced-wordpress-tool')?></label>
 				</fieldset>
 
 
@@ -443,15 +463,15 @@ function wat_admin_menu_page() {
 
 				<br>
 				<fieldset>
-					<input type="submit" name="submit-disable-scripts" class="button button-primary" value="Save Settings">
+					<input type="submit" name="submit-disable-scripts" class="button button-primary" value="<?php _e('Save Settings','advanced-wordpress-tool')?>">
 				</fieldset>
 
 			</form>
 
 			<form action="" method="post">
-				<h2>Add Scripts (To Header)</h2>
-				<small>- Your Google Analytics, Yandex Metrica, Facebook Pixel etc. Codes. </small> <br>
-				<small>- Google Fonts, JS Libraries or more </small> <br>
+				<h2><?php _e('Add Scripts (To Header)','advanced-wordpress-tool')?></h2>
+				<small><?php _e('- Your Google Analytics, Yandex Metrica, Facebook Pixel etc. Codes. ','advanced-wordpress-tool')?></small> <br>
+				<small><?php _e('- Google Fonts, JS Libraries or more ','advanced-wordpress-tool')?></small> <br>
 				<br>
 				<fieldset>
 					<textarea name="analyticscode" id="analyticscode" rows="20"><?php if(get_option('analyticscode')) {echo get_option('analyticscode');} ?></textarea>
@@ -461,7 +481,7 @@ function wat_admin_menu_page() {
 
 				<br>
 				<fieldset>
-					<input type="submit" name="submit-header-scripts" class="button button-primary" value="Save Settings">
+					<input type="submit" name="submit-header-scripts" class="button button-primary" value="<?php _e('Save Settings','advanced-wordpress-tool')?>">
 				</fieldset>
 			</form>
 		<?php
