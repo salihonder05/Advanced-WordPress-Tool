@@ -1,6 +1,8 @@
 # Advanced-WordPress-Tool
 Manage Your WordPress Settings For First Installation
 (İlk Kurulumda wordpress için ayarlarınızı yönetin.)
+ Güncellemeler Yapılıyor
+ 
  <br />	 <br />	
 # Features <br />	
   Disable XMLRPC <br />	
